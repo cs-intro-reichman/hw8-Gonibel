@@ -81,14 +81,11 @@
 
         for ( int i = 0; i < follows.length; i++) {
             if (follows[i] != null) {
-            if( follows[i].equals(name)) {
-                while ( i < 9) {
-                    if (follows[i+1] != null) {
-                    follows[i] = follows[i+1];
-                    i++;
-                    }
+            if(follows[i] != null && follows[i].equals(name)) {
+                for (int j = i; j < follows.length; j++){
+                    follows[j] = follows[j+1]; 
                 }
-                follows[i] = null;
+                follows[follows.length-1] = null;
                 return true;
             }
         }
