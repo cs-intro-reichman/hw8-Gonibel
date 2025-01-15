@@ -86,6 +86,7 @@
                     follows[j] = follows[j+1]; 
                 }
                 follows[follows.length-1] = null;
+                fCount--;
                 return true;
             }
         }
