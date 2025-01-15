@@ -47,7 +47,7 @@
         
         for ( int i = 0 ; i < follows.length; i++) {
             if (follows[i] != null) {
-            if( follows[i].equals(name)) {return true;}
+            if( follows[i].toLowerCase().equals(name.toLowerCase())) {return true;}
             }
         }
 
@@ -61,7 +61,7 @@
 
         for ( int i = 0; i < follows.length; i++) {
             if (follows[i] != null) {
-            if (follows[i].equals(name)) {
+            if (follows[i].toLowerCase().equals(name.toLowerCase())) {
                 return false;
             }
         }
@@ -81,7 +81,7 @@
 
         for ( int i = 0; i < follows.length; i++) {
             if (follows[i] != null) {
-            if(follows[i] != null && follows[i].equals(name)) {
+            if(follows[i] != null && follows[i].toLowerCase().equals(name.toLowerCase())) {
                 for (int j = i; j < follows.length; j++){
                     follows[j] = follows[j+1]; 
                 }
@@ -119,15 +119,15 @@
 
         boolean a = false;
         boolean b = false;
-        for ( int i = 0; i < 10; i++) {
-            if(this.follows[i] != null && this.follows[i].equals(other.getName())) {
+        for ( int i = 0; i < follows.length; i++) {
+            if(this.follows[i] != null && this.follows[i].toLowerCase().equals(other.getName().toLowerCase())) {
                 a = true;
                 break;
             }
         }
 
-        for ( int i = 0; i < 10; i++) {
-            if (other.follows[i] != null && other.follows[i].equals(this.getName())) {
+        for ( int i = 0; i < other.follows.length; i++) {
+            if (other.follows[i] != null && other.follows[i].toLowerCase().equals(this.getName().toLowerCase())) {
                 b = true;
                 break;
             }
