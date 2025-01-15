@@ -82,7 +82,7 @@
         for ( int i = 0; i < follows.length; i++) {
             if (follows[i] != null) {
             if(follows[i] != null && follows[i].toLowerCase().equals(name.toLowerCase())) {
-                for (int j = i; j < follows.length; j++){
+                for (int j = i; j < follows.length - 1; j++){
                     follows[j] = follows[j+1]; 
                 }
                 follows[follows.length-1] = null;
