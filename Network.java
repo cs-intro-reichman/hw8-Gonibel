@@ -71,7 +71,10 @@ public class Network {
         boolean a = false;
         boolean b = false;
         int x = 0;
-        for ( int i = 0; i <= userCount; i++) {
+        if(name1 == null || name2 == null) {return false;}
+        if(name1.toLowerCase().equals(name2.toLowerCase())) {return false;}
+        
+        for ( int i = 0; i <= users.length; i++) {
             if( users[i].getName().toLowerCase().equals(name1.toLowerCase())) { 
                 a = true;
                 x = i;
@@ -126,10 +129,7 @@ public class Network {
                 x = i;
             }
         }
-        if(users[x] != null) {
-            return users[x].getName();
-        }
-        else { return null;}
+        return users[x].getName();
     }
 
     /** Returns the number of times that the given name appears in the follows lists of all
