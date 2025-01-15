@@ -72,11 +72,11 @@ public class Network {
         boolean b = false;
         int x = 0;
         for ( int i = 0; i <= userCount; i++) {
-            if( users[i].getName().equals(name1)) { 
+            if( users[i].getName().toLowerCase().equals(name1.toLowerCase())) { 
                 a = true;
                 x = i;
             }
-            if( users[i].getName().equals(name2)) { 
+            if( users[i].getName().toLowerCase().equals(name2.toLowerCase())) { 
                 b = true;
             }
             if(a && b) {
@@ -96,15 +96,15 @@ public class Network {
         User mostRecommendedUserToFollow = null;
         int x = 0;
         int max = 0;
-        for ( int i = 0; i < userCount; i++) {
+        for ( int i = 0; i < users.length; i++) {
             if(users[i] != null) {
-            if (users[i].getName().equals(name)) {
+            if (users[i].getName().toLowerCase().equals(name.toLowerCase())) {
                 x = i;
                 break;
             }
         }
         }
-        for ( int i = 0; i < userCount; i++) {
+        for ( int i = 0; i <users.length; i++) {
             if( x == i) {continue;}
             if (users[x].countMutual(users[i]) >= max) {
                 max = users[x].countMutual(users[i]);
@@ -120,7 +120,7 @@ public class Network {
     public String mostPopularUser() {
         int max = 0;
         int x = 0;
-        for ( int i = 0; i < userCount; i++) {
+        for ( int i = 0; i < users.length; i++) {
             if (followeeCount(users[i].getName()) >= max) {
                 max = followeeCount(users[i].getName());
                 x = i;
@@ -133,7 +133,7 @@ public class Network {
      *  the users in this network. Note: A name can appear 0 or 1 times in each list. */
     private int followeeCount(String name) {
         int counter = 0;
-        for (int i = 0; i < userCount; i++) {
+        for (int i = 0; i <users.length; i++) {
             if (users[i].getName().equals(name)) {continue;}
             if(users[i].follows(name)) {
                 counter++;
