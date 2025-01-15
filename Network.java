@@ -126,7 +126,10 @@ public class Network {
                 x = i;
             }
         }
-        return users[x].getName();
+        if(users[x] != null) {
+            return users[x].getName();
+        }
+        else { return null;}
     }
 
     /** Returns the number of times that the given name appears in the follows lists of all
