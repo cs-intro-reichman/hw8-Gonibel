@@ -112,12 +112,14 @@ public class Network {
         }
         for ( int i = 0; i <users.length; i++) {
             if( x == i) {continue;}
+            if( users[i] != null) {
             if (users[x].countMutual(users[i]) >= max) {
                 max = users[x].countMutual(users[i]);
                 mostRecommendedUserToFollow = users[i];
             }
         }
-        if (mostRecommendedUserToFollow.getName() != null) {return mostRecommendedUserToFollow.getName();}
+        }
+        if (mostRecommendedUserToFollow != null) {return mostRecommendedUserToFollow.getName();}
         else {return null;}
     }
 
@@ -127,10 +129,12 @@ public class Network {
         int max = 0;
         int x = 0;
         for ( int i = 0; i < users.length; i++) {
+            if(users[i] != null) {
             if (followeeCount(users[i].getName()) >= max) {
                 max = followeeCount(users[i].getName());
                 x = i;
             }
+        }
         }
         return users[x].getName();
     }
