@@ -74,7 +74,7 @@ public class Network {
         if(name1 == null || name2 == null) {return false;}
         if(name1.toLowerCase().equals(name2.toLowerCase())) {return false;}
         
-        for ( int i = 0; i <= users.length; i++) {
+        for ( int i = 0; i < users.length; i++) {
             if (users[i] != null) {
             if( users[i].getName().toLowerCase().equals(name1.toLowerCase())) { 
                 a = true;
