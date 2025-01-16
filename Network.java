@@ -110,12 +110,13 @@ public class Network {
             }
         }
         }
-        for ( int i = 0; i <users.length; i++) {
+        for ( int i = 0; i < users.length; i++) {
             if( x == i) {continue;}
             if( users[i] != null) {
-            if (users[x].countMutual(users[i]) >= max) {
+            if (users[x].countMutual(users[i]) > max) {
                 max = users[x].countMutual(users[i]);
                 mostRecommendedUserToFollow = users[i];
+                
             }
         }
         }
