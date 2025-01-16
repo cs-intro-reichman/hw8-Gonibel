@@ -75,6 +75,7 @@ public class Network {
         if(name1.toLowerCase().equals(name2.toLowerCase())) {return false;}
         
         for ( int i = 0; i <= users.length; i++) {
+            if (users[i] != null) {
             if( users[i].getName().toLowerCase().equals(name1.toLowerCase())) { 
                 a = true;
                 x = i;
@@ -82,12 +83,14 @@ public class Network {
             if( users[i].getName().toLowerCase().equals(name2.toLowerCase())) { 
                 b = true;
             }
+        }
+    }
             if(a && b) {
                 if (!users[x].follows(name2)) {
                    return  users[x].addFollowee(name2);
                 }
             }
-        }
+        
 
         return false;
     }
