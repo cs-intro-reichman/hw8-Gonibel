@@ -131,13 +131,18 @@ public class Network {
         int x = 0;
         for ( int i = 0; i < users.length; i++) {
             if(users[i] != null) {
-            if (followeeCount(users[i].getName()) >= max) {
+            if (followeeCount(users[i].getName()) > max) {
                 max = followeeCount(users[i].getName());
                 x = i;
             }
         }
         }
-        return users[x].getName();
+        if (users[x] != null) {
+            return users[x].getName();
+        }
+        else {
+            return null;
+        }
     }
 
     /** Returns the number of times that the given name appears in the follows lists of all
@@ -145,10 +150,12 @@ public class Network {
     private int followeeCount(String name) {
         int counter = 0;
         for (int i = 0; i <users.length; i++) {
+            if (users[i] != null) {
             if (users[i].getName().equals(name)) {continue;}
             if(users[i].follows(name)) {
                 counter++;
             }
+        }
         }
         return counter;
     }
